@@ -111,3 +111,4 @@ assets/public/bower/
 coverage/
 boot/local.js
 .vagrant/
+dump.rdb

@@ -126,7 +126,7 @@ exports = module.exports = function() {
         safe: false
       },
       knex: {
-        client: 'mysql'
+        client: 'pg'
       },
       redis: {
         host: 'localhost',
@@ -193,7 +193,7 @@ exports = module.exports = function() {
         debug: true,
         connection: {
           host: '127.0.0.1',
-          user: 'root',
+          user: 'roberthorrigan',
           password: '',
           database: 'igloo_development'
         }
@@ -230,7 +230,7 @@ exports = module.exports = function() {
       knex: {
         connection: {
           host: '127.0.0.1',
-          user: 'root',
+          user: 'roberthorrigan',
           password: '',
           database: 'igloo_production'
         }
