@@ -7,6 +7,9 @@ exports = module.exports = function(IoC, settings) {
 
   var app = this;
 
+  // about
+  app.phase(bootable.di.routes('./routes/about.js'));
+
   // api
   app.phase(bootable.di.routes('./routes/api.js'));
 
