@@ -1,0 +1,12 @@
+
+//- # song - show
+
+extends ../layout
+
+block content
+  .container
+    .row
+      .col-md-4.col-md-offset-4
+        h1 Song - #{song.name}
+      
+        a(href='/songs/' + song.id + '/edit') Edit Song

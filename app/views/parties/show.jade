@@ -1,0 +1,13 @@
+
+//- # party - show
+
+extends ../layout
+
+block content
+  .container
+    .row
+      .col-md-4.col-md-offset-4
+        h1 Party - #{party.name}
+
+        hr
+        a(href='/parties/' + party.id + '/edit') Edit Party

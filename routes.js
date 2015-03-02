@@ -10,6 +10,12 @@ exports = module.exports = function(IoC, settings) {
   // about
   app.phase(bootable.di.routes('./routes/about.js'));
 
+  // parties
+  app.phase(bootable.di.routes('./routes/parties.js'));
+
+  // songs
+  app.phase(bootable.di.routes('./routes/songs.js'));
+
   // api
   app.phase(bootable.di.routes('./routes/api.js'));
 
