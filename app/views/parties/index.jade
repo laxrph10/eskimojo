@@ -21,7 +21,7 @@ block content
             each party in parties
               tr
                 td= party.name
-                td= party.partyCode
+                td= party.id
                 td= moment(party.created_at).format('MM/DD/YY')
                 td= moment(party.updated_at).format('MM/DD/YY')
                 td

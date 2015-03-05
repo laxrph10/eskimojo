@@ -20,7 +20,8 @@ exports = module.exports = function(Song) {
           res.render('songs', {
             songs: songs,
             pageCount: pageCount,
-            itemCount: itemCount
+            itemCount: itemCount,
+            partyId: '54f8960aff1932f0230ef94e'
           });
         },
         json: function() {
@@ -40,7 +41,7 @@ exports = module.exports = function(Song) {
   }
 
   function create(req, res, next) {
-    if (!_.isString(req.body.name) || _.isBlank(req.body.name)) {
+    if (!_.isString(req.body.title) || _.isBlank(req.body.title)) {
       return next({
         param: 'name',
         message: 'Name is missing or blank'
@@ -48,10 +49,10 @@ exports = module.exports = function(Song) {
     }
 
     Song.create({
-      name: req.body.name,
+      genre: req.body.genre,
       title: req.body.title,
       artist: req.body.artist,
-      partyName: req.body.partyName
+      partyId: req.body.partyId
     }, function(err, song) {
       if (err) {
         return next(err);
@@ -60,7 +61,7 @@ exports = module.exports = function(Song) {
       res.format({
         html: function() {
           req.flash('success', 'Successfully created song');
-          res.redirect('/songs');
+          res.redirect('/parties/' +'54f8960aff1932f0230ef94e' + '/songs');
         },
         json: function() {
           res.json(song);
@@ -103,7 +104,8 @@ exports = module.exports = function(Song) {
       }
 
       res.render('songs/edit', {
-        song: song
+        song: song,
+        partyId: '54f8960aff1932f0230ef94e'
       });
     });
   }
@@ -118,14 +120,16 @@ exports = module.exports = function(Song) {
         return next(new Error('Song does not exist'));
       }
 
-      if (!_.isString(req.body.name) || _.isBlank(req.body.name)) {
+      if (!_.isString(req.body.title) || _.isBlank(req.body.title)) {
         return next({
-          param: 'name',
-          message: 'Name is missing or blank'
+          param: 'title',
+          message: 'Title is missing or blank'
         });
       }
 
       song.name = req.body.name;
+      song.title = req.body.title;
+      song.artist = req.body.artist;
       song.save(function(err, song) {
         if (err) {
           return next(err);
@@ -134,7 +138,7 @@ exports = module.exports = function(Song) {
         res.format({
           html: function() {
             req.flash('success', 'Successfully updated song');
-            res.redirect('/songs/' + song.id);
+            res.redirect('/parties/' + '54f8960aff1932f0230ef94e' + '/songs');
           },
           json: function() {
             res.json(song);
@@ -162,7 +166,7 @@ exports = module.exports = function(Song) {
         res.format({
           html: function() {
             req.flash('success', 'Successfully removed song');
-            res.redirect('/songs');
+            res.redirect('/parties/' + '54f8960aff1932f0230ef94e' + '/songs');
           },
           json: function() {
             // inspired by Stripe's API response for object removals

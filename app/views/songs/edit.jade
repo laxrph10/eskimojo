@@ -10,10 +10,16 @@ block content
       .col-md-4.col-md-offset-4
         h1 Edit Song - #{song.name}
 
-        form(action='/songs/' + song.id + '?_method=PUT', method='POST')
+        form(action='/parties/' + partyId + '/songs/' + song.id + '?_method=PUT', method='POST')
           input(type='hidden', name='_csrf', value=csrf)
-          .form-group
-            label.control-label Name
-            input(type='text', name='name', placeholder='Name', value=song.name, required).form-control
 
+          .form-group
+            label.control-label Genre
+            input(type='text', name='genre', placeholder='ex. My favorite song', value=song.genre, required).form-control
+          .form-group
+            label.control-label Title
+            input(type='text', name='title', placeholder='Song title', value=song.title, required).form-control
+          .form-group
+            label.control-label Artist
+            input(type='text', name='artist', placeholder='Artist name', value=song.artist required).form-control
           button(type='submit').btn.btn-lg.btn-primary.btn-block Update Song
