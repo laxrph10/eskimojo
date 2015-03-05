@@ -10,6 +10,10 @@ exports = module.exports = function(mongoose, iglooMongoosePlugin) {
     name: {
       type: String,
       required: true
+    },
+    user: {
+      type: String,
+      required: true
     }
   });
 

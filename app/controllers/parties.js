@@ -20,7 +20,8 @@ exports = module.exports = function(Party) {
           res.render('parties', {
             parties: parties,
             pageCount: pageCount,
-            itemCount: itemCount
+            itemCount: itemCount,
+            user: 'test@example.com'
           });
         },
         json: function() {
@@ -49,6 +50,7 @@ exports = module.exports = function(Party) {
 
     Party.create({
       name: req.body.name,
+      user: req.body.user,
       partyCode: req.body.partyCode
     }, function(err, party) {
       if (err) {

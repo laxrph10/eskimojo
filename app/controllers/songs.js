@@ -43,8 +43,8 @@ exports = module.exports = function(Song) {
   function create(req, res, next) {
     if (!_.isString(req.body.title) || _.isBlank(req.body.title)) {
       return next({
-        param: 'name',
-        message: 'Name is missing or blank'
+        param: 'title',
+        message: 'Title is missing or blank'
       });
     }
 
