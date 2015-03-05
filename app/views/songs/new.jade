@@ -10,13 +10,14 @@ block content
         h2 Add a Song:
         form(action='/songs', method='POST')
           input(type='hidden', name='_csrf', value=csrf)
+          input(type='hidden', name='partyName', value=)
           .form-group
             label.control-label Label
             input(type='text', name='name', placeholder='ex. My favorite song', required).form-control
           .form-group
             label.control-label Title
-            input(type='text', name='title', placeholder='song title', required).form-control
+            input(type='text', name='title', placeholder='Song title', required).form-control
           .form-group
             label.control-label Artist
-            input(type='text', name='artist', placeholder='artist name' required).form-control
+            input(type='text', name='artist', placeholder='Artist name' required).form-control
           button(type='submit').btn.btn-lg.btn-primary.btn-block Add Song

@@ -10,6 +10,14 @@ exports = module.exports = function(mongoose, iglooMongoosePlugin) {
     name: {
       type: String,
       required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    artist: {
+      type: String,
+      required: true
     }
   });
 

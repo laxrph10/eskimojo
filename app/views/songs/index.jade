@@ -12,7 +12,10 @@ block content
         p: a(href='/songs/new') Create New Song
         table.table.table-bordered.table-hover.table-striped
           thead
-            th Name
+            th Label
+            th Title
+            th Artist
+            th Party
             th Created At
             th Updated At
             th Actions
@@ -20,6 +23,9 @@ block content
             each song in songs
               tr
                 td= song.name
+                td= song.title
+                td= song.artist
+                td= song.partyName
                 td= moment(song.created_at).format('MM/DD/YY')
                 td= moment(song.updated_at).format('MM/DD/YY')
                 td

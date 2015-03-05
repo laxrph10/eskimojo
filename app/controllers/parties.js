@@ -48,10 +48,11 @@ exports = module.exports = function(Party) {
     }
 
     Party.create({
-      name: req.body.name
+      name: req.body.name,
+      partyCode: req.body.partyCode
     }, function(err, party) {
       if (err) {
-        return next(err); 
+        return next(err);
       }
 
       res.format({

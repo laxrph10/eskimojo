@@ -12,7 +12,8 @@ block content
         p: a(href='/parties/new') Create New Party
         table.table.table-bordered.table-hover.table-striped
           thead
-            th Name
+            th Party Name
+            th Code
             th Created At
             th Updated At
             th Actions
@@ -20,6 +21,7 @@ block content
             each party in parties
               tr
                 td= party.name
+                td= party.partyCode
                 td= moment(party.created_at).format('MM/DD/YY')
                 td= moment(party.updated_at).format('MM/DD/YY')
                 td
@@ -31,3 +33,14 @@ block content
                         input(type='hidden', name='_csrf', value=csrf)
                         button(type='submit').btn.btn-sm.btn-danger Remove
         include ../_paginate
+
+  .container
+    .row
+      .col-md-8.col-md-offset-2
+        form(action='/parties', method='GET')
+          input(type='hidden', name='_csrf', value=csrf)
+
+          .form-group
+            label.control-label Party Code
+            input(type='text', name='partyCode', placeholder='5 Digit Code', required).form-control
+          button(type='submit').btn.btn-lg.btn-primary.btn-block Join a Party!

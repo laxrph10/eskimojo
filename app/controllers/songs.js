@@ -48,10 +48,13 @@ exports = module.exports = function(Song) {
     }
 
     Song.create({
-      name: req.body.name
+      name: req.body.name,
+      title: req.body.title,
+      artist: req.body.artist,
+      partyName: req.body.partyName
     }, function(err, song) {
       if (err) {
-        return next(err); 
+        return next(err);
       }
 
       res.format({
