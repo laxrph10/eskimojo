@@ -45,7 +45,7 @@ exports = module.exports = function(IoC) {
   );
 
   app.use(
-    '/songs',
+    '/parties/:id/songs',
     router
   );
 

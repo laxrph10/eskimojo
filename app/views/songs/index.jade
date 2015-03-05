@@ -9,10 +9,10 @@ block content
     .row
       .col-md-8.col-md-offset-2
         h1 Songs (#{songs.length})
-        p: a(href='/songs/new') Create New Song
+        p: a(href='/parties/' + partyId + '/songs/new') Create New Song
         table.table.table-bordered.table-hover.table-striped
           thead
-            th Label
+            th Genre
             th Title
             th Artist
             th Party
@@ -22,18 +22,18 @@ block content
           tbody
             each song in songs
               tr
-                td= song.name
+                td= song.genre
                 td= song.title
                 td= song.artist
-                td= song.partyName
+                td= song.partyId
                 td= moment(song.created_at).format('MM/DD/YY')
                 td= moment(song.updated_at).format('MM/DD/YY')
                 td
                   ul.list-inline
                     li: a(href='/songs/' + song.id).btn.btn-sm.btn-info View
-                    li: a(href='/songs/' + song.id + '/edit').btn.btn-sm.btn-warning Edit
+                    li: a(href='/parties/' + partyId + '/songs/' + song.id + '/edit').btn.btn-sm.btn-warning Edit
                     li
-                      form(action='/songs/' + song.id + '?_method=DELETE', method='POST').form-inline
+                      form(action='/parties/' + '54f8960aff1932f0230ef94e' + '/songs/' + song.id + '?_method=DELETE', method='POST').form-inline
                         input(type='hidden', name='_csrf', value=csrf)
                         button(type='submit').btn.btn-sm.btn-danger Remove
         include ../_paginate

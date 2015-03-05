@@ -8,12 +8,12 @@ block content
     .row
       .col-md-4.col-md-offset-4
         h2 Add a Song:
-        form(action='/songs', method='POST')
+        form(action='/parties/' + '54f8960aff1932f0230ef94e' + '/songs', method='POST')
           input(type='hidden', name='_csrf', value=csrf)
-          input(type='hidden', name='partyName', value=)
+          input(type='hidden', name='partyId', value='54f8960aff1932f0230ef94e')
           .form-group
-            label.control-label Label
-            input(type='text', name='name', placeholder='ex. My favorite song', required).form-control
+            label.control-label Genre
+            input(type='text', name='genre', placeholder='ex. My favorite song', required).form-control
           .form-group
             label.control-label Title
             input(type='text', name='title', placeholder='Song title', required).form-control

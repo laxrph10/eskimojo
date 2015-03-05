@@ -7,7 +7,7 @@ var mongoosePaginate = require('mongoose-paginate');
 exports = module.exports = function(mongoose, iglooMongoosePlugin) {
 
   var Song = new mongoose.Schema({
-    name: {
+    genre: {
       type: String,
       required: true
     },
@@ -16,6 +16,10 @@ exports = module.exports = function(mongoose, iglooMongoosePlugin) {
       required: true
     },
     artist: {
+      type: String,
+      required: true
+    },
+    partyId: {
       type: String,
       required: true
     }
