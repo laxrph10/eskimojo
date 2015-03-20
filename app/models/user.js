@@ -18,7 +18,7 @@ exports = module.exports = function(settings, mongoose, iglooMongoosePlugin, ema
 
   var nameType = {
     type: String,
-    required: true,
+    required: false,
     validate: [ function(val) { return !_.isBlank(val); }, '{path} was blank' ],
     trim: true
   };

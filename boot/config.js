@@ -40,6 +40,12 @@ exports = module.exports = function() {
         clientID: '',
         clientSecret: ''
       },
+      spotify: {
+        enabled: true,
+        clientID: 'fb2342f033744364a4ebc94972ddeba1',
+        clientSecret: '223ff9c73e5c4a029df3258bd2d3eaad',
+        scope: ['user-read-email', 'user-read-private']
+      },
       pkg: pkg,
       cache: false,
       showStack: true,

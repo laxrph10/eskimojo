@@ -1,0 +1,14 @@
+if pathname !== '/'
+  .navbar.navbar-default.navbar-fixed-top(role='navigation')
+    .container-fluid
+      .navbar-header
+        a(href="#", data-toggle='collapse', data-target='.navbar-collapse').navbar-toggle
+          span.sr-only Toggle navigation
+          i.fa.fa-bars.fa-fw
+        a(href='/').navbar-brand
+      .navbar-collapse.collapse
+        ul.nav.navbar-nav.navbar-right
+          li(class='active'): a(href='/my-account') My Account
+          li(class='active'): a(href='/logout') Log Out
+
+.container-fluid.container-navbar-offset

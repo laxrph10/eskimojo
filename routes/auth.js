@@ -80,54 +80,29 @@ exports = module.exports = function(IoC, policies, settings) {
     reset.post
   );
 
-  // ## Google Authentication
-  if (settings.google.enabled) {
+  // ## Spotify Authentication
+  if (settings.spotify.enabled) {
 
     app.get(
-      '/auth/google',
+      '/auth/spotify',
       policies.ensureLoggedOut(),
-      passport.authenticate('google', {
-        scope: settings.google.scope
+      passport.authenticate('spotify', {
+        scope: settings.spotify.scope
       })
     );
 
     app.get(
-      '/auth/google/callback',
+      '/auth/spotify/callback',
       policies.ensureLoggedOut(),
-      passport.authenticate('google', {
+      passport.authenticate('spotify', {
         successFlash: true,
-        successReturnToOrRedirect: '/',
+        successReturnToOrRedirect: '/parties',
         failureFlash: true,
-        failureRedirect: '/login'
+        failureRedirect: '/'
       })
     );
 
   }
-
-  // ## Facebook Authentication
-  if (settings.facebook.enabled) {
-
-    app.get(
-      '/auth/facebook',
-      policies.ensureLoggedOut(),
-      passport.authenticate('facebook', {
-        scope: settings.facebook.scope
-      })
-    );
-
-    app.get(
-      '/auth/facebook/callback',
-      policies.ensureLoggedOut(),
-      passport.authenticate('facebook', {
-        successFlash: true,
-        successReturnToOrRedirect: '/',
-        failureFlash: true,
-        failureRedirect: '/login'
-      })
-    );
-
-  }
-
 };
 
 exports['@require'] = [ '$container', 'policies', 'igloo/settings' ];

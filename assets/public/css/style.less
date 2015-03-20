@@ -16,3 +16,44 @@
   color: #000;
   padding: 0.2em 0;
 }
+
+// Navigation
+
+.navbar {
+  font-size: 16px;
+  // screen-xs fix for margin top on top of navbar collapse/opened
+  .navbar-nav {
+    margin-top: 0px;
+  }
+  a.navbar-brand {
+    display: block;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 16px;
+    width: 171px;
+    .img-retina('../img/logo.png', '../img/logo@2x.png', 156px, 37px);
+    background-repeat: no-repeat;
+    background-position: 15px center;
+  }
+  .navbar-toggle {
+    border-color: #fff;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    .fa-bars {
+      color: #fff;
+    }
+    &:hover, &:focus {
+      background-color: #fff;
+      .fa-bars {
+        color: @brand-primary;
+      }
+    }
+  }
+  .navbar-collapse {
+    box-shadow: none;
+  }
+  .navbar-form {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}

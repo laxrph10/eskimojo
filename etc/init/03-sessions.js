@@ -7,10 +7,7 @@ var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var randomstring = require('randomstring-extended');
 var connectLiveReload = require('connect-livereload');
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-var GoogleTokenStrategy = require('passport-google-token').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
-var FacebookTokenStrategy = require('passport-facebook-token').Strategy;
+var SpotifyStrategy = require('passport-spotify').Strategy;
 var validator = require('validator');
 var _ = require('underscore');
 
@@ -45,38 +42,14 @@ exports = module.exports = function(IoC, settings, sessions, User, policies) {
   passport.serializeUser(User.serializeUser());
   passport.deserializeUser(User.deserializeUser());
 
-  // ## Google Authentication
-  if (settings.google.enabled) {
+    // ## Spotify Authentication
+  if (settings.spotify.enabled) {
 
     // web-based
-    passport.use(new GoogleStrategy({
-      callbackURL: settings.url + '/auth/google/callback',
-      clientID: settings.google.clientID,
-      clientSecret: settings.google.clientSecret
-    }, providerAuthCallback));
-
-    // token-based
-    passport.use(new GoogleTokenStrategy({
-      clientID: settings.google.clientID,
-      clientSecret: settings.google.clientSecret
-    }, providerAuthCallback));
-
-  }
-
-  // ## Facebook Authentication
-  if (settings.facebook.enabled) {
-
-    // web-based
-    passport.use(new FacebookStrategy({
-      callbackURL: settings.url + '/auth/facebook/callback',
-      clientID: settings.facebook.appID,
-      clientSecret: settings.facebook.appSecret
-    }, providerAuthCallback));
-
-    // token-based
-    passport.use(new FacebookTokenStrategy({
-      clientID: settings.facebook.appID,
-      clientSecret: settings.facebook.appSecret
+    passport.use(new SpotifyStrategy({
+      callbackURL: 'http://localhost:3000/auth/spotify/callback',
+      clientID: settings.spotify.clientID,
+      clientSecret: settings.spotify.clientSecret
     }, providerAuthCallback));
 
   }
@@ -127,9 +100,7 @@ exports = module.exports = function(IoC, settings, sessions, User, policies) {
       }
 
       user = {
-        email: profile.emails[0].value,
-        name: profile.name.givenName,
-        surname: profile.name.familyName
+        email: profile.emails[0].value
       };
 
       user[profile.provider + '_id'] = profile.id;

@@ -54,6 +54,15 @@ exports = module.exports = function(IoC, policies) {
     api.login
   );
 
+  router.post(
+    '/auth/spotify',
+    policies.ensureLoggedOut(),
+    passport.authenticate('spotify-token', {
+      session: true
+    }),
+    api.login
+  );
+
   router.put(
     '/user',
     policies.ensureApiToken,
