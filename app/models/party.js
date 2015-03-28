@@ -12,8 +12,13 @@ exports = module.exports = function(mongoose, iglooMongoosePlugin) {
       required: true
     },
     user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    party_code: {
       type: String,
-      required: true
+      required: true,
+      unique: true,
     }
   });
 

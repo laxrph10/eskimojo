@@ -19,8 +19,9 @@ exports = module.exports = function(mongoose, iglooMongoosePlugin) {
       type: String,
       required: true
     },
-    partyId: {
-      type: String,
+    party: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Party",
       required: true
     }
   });

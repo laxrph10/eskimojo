@@ -11,7 +11,7 @@ block content
 
         form(action='/parties', method='POST')
           input(type='hidden', name='_csrf', value=csrf)
-          input(type='hidden', name='user', value='test@example.com')
+          input(type='hidden', name='user', value=req.user._id)
           .form-group
             label.control-label Name
             input(type='text', name='name', placeholder='Name', required).form-control

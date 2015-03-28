@@ -41,7 +41,10 @@ exports = module.exports = function(settings, mongoose, iglooMongoosePlugin, ema
     facebook_refresh_token: String,
     google_id: String,
     google_access_token: String,
-    google_refresh_token: String
+    google_refresh_token: String,
+    spotify_id: String,
+    spotify_access_token: String,
+    spotify_refresh_token: String
   });
 
   // pre save

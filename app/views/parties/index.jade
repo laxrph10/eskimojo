@@ -12,7 +12,7 @@ block content
         table.table.table-bordered.table-hover.table-striped
           thead
             th Party Name
-            th Code
+            th Party Code
             th Created At
             th Updated At
             th Actions
@@ -20,7 +20,7 @@ block content
             each party in parties
               tr
                 td= party.name
-                td= party.id
+                td= party.party_code
                 td= moment(party.created_at).format('MM/DD/YY')
                 td= moment(party.updated_at).format('MM/DD/YY')
                 td
@@ -36,10 +36,8 @@ block content
   .container
     .row
       .col-md-8.col-md-offset-2
-        form(action='/parties', method='GET')
-          input(type='hidden', name='_csrf', value=csrf)
-
+        form(action='/search', method='GET')
           .form-group
             label.control-label Party Code
-            input(type='text', name='partyCode', placeholder='Enter Party Code', required).form-control
+            input(type='text', name='party_code', placeholder='Enter Party Code', required).form-control
           button(type='submit').btn.btn-lg.btn-primary.btn-block Join a Party!

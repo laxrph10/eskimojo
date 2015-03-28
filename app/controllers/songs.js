@@ -21,7 +21,6 @@ exports = module.exports = function(Song) {
             songs: songs,
             pageCount: pageCount,
             itemCount: itemCount,
-            partyId: '54f8960aff1932f0230ef94e'
           });
         },
         json: function() {
@@ -61,7 +60,7 @@ exports = module.exports = function(Song) {
       res.format({
         html: function() {
           req.flash('success', 'Successfully created song');
-          res.redirect('/parties/' +'54f8960aff1932f0230ef94e' + '/songs');
+          res.redirect('/songs');
         },
         json: function() {
           res.json(song);

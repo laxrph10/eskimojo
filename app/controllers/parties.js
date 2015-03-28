@@ -41,6 +41,7 @@ exports = module.exports = function(Party) {
   }
 
   function create(req, res, next) {
+
     if (!_.isString(req.body.name) || _.isBlank(req.body.name)) {
       return next({
         param: 'name',
@@ -50,8 +51,8 @@ exports = module.exports = function(Party) {
 
     Party.create({
       name: req.body.name,
-      user: req.body.user,
-      partyCode: req.body.partyCode
+      user: req.user._id,
+      party_code: Math.random().toString(36).substr(2, 5).toUpperCase()
     }, function(err, party) {
       if (err) {
         return next(err);
@@ -70,6 +71,7 @@ exports = module.exports = function(Party) {
   }
 
   function show(req, res, next) {
+
     Party.findById(req.params.id, function(err, party) {
       if (err) {
         return next(err);

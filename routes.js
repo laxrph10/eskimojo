@@ -31,6 +31,9 @@ exports = module.exports = function(IoC, settings) {
   // users
   app.phase(bootable.di.routes('./routes/users.js'));
 
+  // search
+  app.phase(bootable.di.routes('./routes/search.js'));
+
   // error handler (always keep this last)
   app.phase(function() {
     var errorHandler = IoC.create('igloo/error-handler');
