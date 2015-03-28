@@ -14,7 +14,9 @@ block content
           tr
             th Party Owner:
             td= party.user.email
-      form(action='https://api.spotify.com/v1/search?q=', method='GET')
-        input(type='text', name='q')
+      form(action='/search-spotify', method='GET')
+        input(type='hidden', name='_csrf', value=csrf)
+        input(type='text', name='artist', placeholder='Artist')
+        input(type='text', name='song', placeholder='Song')
         button(type='submit').btn.btn-lg.btn-primary
 
